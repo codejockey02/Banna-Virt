@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VIRTUALISATION</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #top {
+            background-color: #DE5757;
+            width: 1440px;
+            height: 100px;
+
+            margin-bottom: 40px;
+
+        }
+
+        #heading {
+            color: #ffffff;
+            font-size: 40px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        #cHead {
+            font-size: 18px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #212121;
+        }
+
+        #gola {
+            border: 1px solid #DE5757;
+            width: 500px;
+            margin: 5px;
+            margin-left: 25px;
+            padding: 2px;
+            margin-top: 25px;
+            padding-left: 10px;
+            border-radius: 3px;
+        }
+
+        #choose {
+            padding: 5px;
+            margin-left: 25px;
+        }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .btn {
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 1px 3px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 50px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+    </style>
+
+    <div id="top">
+
+        <p id="heading">Virtual Memory Manager</p>
+    </div>
+
+    <fieldset id="gola">
+        <legend></legend>
+        <p id="cHead">Choose a file to upload </p>
+    </fieldset>
+
+    <form action="/upload" enctype="multipart/form-data" method="POST">
+
+        <input type="file" name="file" id="choose" />
+        <div class="upload-btn-wrapper">
+            <!-- <button class="btn">Upload a file</button> -->
+            <input class="btn" type="submit" value="Upload the file" id="submit" />
+        </div>
+        <!-- <input type="submit" value="Upload a C file with a .c extension" id="submit" /> -->
+    </form>
+</body>
+
+</html>
