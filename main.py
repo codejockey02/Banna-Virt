@@ -59,4 +59,4 @@ def upload():
     addressFile.close()
 
 if __name__ == "__main__":
-    app.run("127.0.0.1", "3004", debug=True)
+    app.run("0.0.0.0", "3004", debug=True)
