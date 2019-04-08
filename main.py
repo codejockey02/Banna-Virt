@@ -1,7 +1,7 @@
 import part1
 import part2
 
-physicalMemory = []
+physicalMemory = {}
 tlb = []
 pageTable = []
 pageFaultCounter = 0
