@@ -6,7 +6,7 @@ from flask import render_template
 import os
 from werkzeug import secure_filename
 
-app = Flask(__name__, template_folder='template')
+app = Flask(__name__, template_folder='templates')
 Upload_Folder = './Upload_Folder'
 app.config['Upload_Folder'] = Upload_Folder
 
@@ -19,7 +19,7 @@ def upload():
     f = request.files['file']
     filename = secure_filename(f.filename)
     f.save(os.path.join(app.config['Upload_Folder'], filename))
-    outputFile = open('template/output.html', 'w')
+    outputFile = open('./templates/output.html', 'w')
     outputFile.write("<html><body bgcolor=aqua font-color=white>")
     with open('./Upload_Folder/addresses.txt', 'r') as addressFile:
         physicalMemory = {}
@@ -51,12 +51,12 @@ def upload():
     pageFaultRate = pageFaultCounter / addressReadCounter
     tlbHitRate = tlbHitCounter / addressReadCounter
     outStr = 'Number of translated address: ' + str(addressReadCounter) + '\n' + 'Number of page fault: ' + str(pageFaultCounter) + '\n' + 'Page fault rate: ' + str(pageFaultRate) + '\n' + 'Number of TLB hits: ' + str(tlbHitCounter) + '\n' + 'TLB hit rate: ' + str(tlbHitRate) + '<BR>'
-    return render_template('output.html')
     print(outStr)
     outputFile.write(outStr)
     outputFile.write("</html></body>")
     outputFile.close()
     addressFile.close()
+    return render_template('output.html')
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080, host='0.0.0.0')
